@@ -5,8 +5,8 @@ Repository for tensorflow examples and experiments.
 
 ## Examples
 
- * **cnn_using_estimator_api**: Train a custom convolutional neural network using the tensorflow estimator API.
- * **transfer_learning_using_tf_hub**: Train a neural network using the tensorflow model hub and transfer learning.
+ * [**cnn_using_estimator_api**](https://github.com/mdabros/tensorflow-examples/blob/master/src/cnn_using_estimator_api.py): Train a custom convolutional neural network using the tensorflow estimator API.
+ * [**transfer_learning_using_tf_hub**](https://github.com/mdabros/tensorflow-examples/blob/master/src/transfer_learning_using_tf_hub.py): Train a neural network using the tensorflow model hub and transfer learning.
 
 ## Installation
 
