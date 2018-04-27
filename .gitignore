@@ -1,3 +1,10 @@
+# Data directories
+src/MNIST-data
+
+# Model directories
+src/cnn-model/*
+src/transfer-learn-model/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
