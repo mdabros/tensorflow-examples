@@ -5,13 +5,13 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{264f7011-1c62-48de-b8f1-f8ff4daef396}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>transfer_learning_using_tf_hub.py</StartupFile>
+    <StartupFile>cnn_using_estimator_api.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <InterpreterId />
+    <InterpreterId>MSBuild|tensorflow-examples|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -21,6 +21,20 @@
   <ItemGroup>
     <Compile Include="cnn_using_estimator_api.py" />
     <Compile Include="transfer_learning_using_tf_hub.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="tensorflow-examples\">
+      <Id>tensorflow-examples</Id>
+      <Version>3.6</Version>
+      <Description>tensorflow-examples (Python 3.6 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="requirements.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>
