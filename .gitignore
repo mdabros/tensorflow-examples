@@ -1,9 +1,14 @@
 # Data directories
 src/MNIST-data
+src/tensorflow-examples/Scripts
 
 # Model directories
 src/cnn-model/*
 src/transfer-learn-model/*
+
+# environment files
+src/tensorflow-examples/pip-selfcheck.json
+src/tensorflow-examples/pyvenv.cfg
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
