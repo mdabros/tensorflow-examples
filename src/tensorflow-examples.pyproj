@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{264f7011-1c62-48de-b8f1-f8ff4daef396}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>cnn_using_estimator_api.py</StartupFile>
+    <StartupFile>cnn_using_keras_api.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -19,7 +19,7 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="cnn_using_estimator_api.py" />
+    <Compile Include="cnn_using_keras_api.py" />
     <Compile Include="transfer_learning_using_tf_hub.py" />
   </ItemGroup>
   <ItemGroup>
