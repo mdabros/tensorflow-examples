@@ -5,6 +5,7 @@ src/tensorflow-examples/Scripts
 # Model directories
 src/cnn-model/*
 src/transfer-learn-model/*
+*.h5
 
 # environment files
 src/tensorflow-examples/pip-selfcheck.json
