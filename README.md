@@ -6,7 +6,7 @@ Repository for tensorflow examples and experiments.
 ## Examples
 
  * [**cnn_using_keras_api**](https://github.com/mdabros/tensorflow-examples/blob/master/src/cnn_using_estimator_api.py): Train a custom convolutional neural network using the tf.keras API.
- * [**transfer_learning_using_tf_hub**](https://github.com/mdabros/tensorflow-examples/blob/master/src/transfer_learning_using_tf_hub.py): Train a neural network using the tensorflow model hub and transfer learning.
+ * [**transfer_learning_using_keras_applications**](https://github.com/mdabros/tensorflow-examples/blob/master/src/transfer_learning_using_tf_hub.py): Train a neural network using the keras.applications and transfer learning.
 
 ## Installation
 
