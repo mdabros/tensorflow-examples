@@ -23,8 +23,7 @@ Components:
 Install Tensor Flow packages:
  * Start Visual Studio, open **Python Environments**
  * Select **Python 3.6 (64-bit)**
- * On the **Overview** combo box select **Packages**
- * Search for `tensorflow` and install. For the gpu version, search for `tensorflow-gpu`.
+ * On the **Overview** combo box select **Install from requirements.txt**
  
 ### Installing cuDNN
 If using the gpu version of tensorflow, make sure to check which version of cuda and cuDNN is supported. 
