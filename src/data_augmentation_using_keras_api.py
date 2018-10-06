@@ -12,19 +12,19 @@ def main(unused_argv):
 	test_datagen = tf.keras.preprocessing.image.ImageDataGenerator(rescale=1./255)
 
 	train_generator = train_datagen.flow_from_directory(
-			# This is the target directory
-			r'E:\DataSets\CatsAndDogs\train\train_small',
-			# All images will be resized to 150x150
-			target_size=(150, 150),
-			batch_size=20,
-			# Since we use binary_crossentropy loss, we need binary labels
-			class_mode='categorical')
+		# This is the target directory
+		r'E:\DataSets\CatsAndDogs\train\train_small',
+		# All images will be resized to 150x150
+		target_size=(150, 150),
+		batch_size=20,
+		# Since we use binary_crossentropy loss, we need binary labels
+		class_mode='categorical')
 
 	validation_generator = test_datagen.flow_from_directory(
-			r'E:\DataSets\CatsAndDogs\train\validation',
-			target_size=(150, 150),
-			batch_size=20,
-			class_mode='categorical')
+		r'E:\DataSets\CatsAndDogs\train\validation',
+		target_size=(150, 150),
+		batch_size=20,
+		class_mode='categorical')
 
 	for data_batch, labels_batch in train_generator:
 		print('data batch shape:', data_batch.shape)
