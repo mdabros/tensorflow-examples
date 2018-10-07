@@ -18,45 +18,30 @@ def main(unused_argv):
 		target_size=(150, 150),
 		batch_size=20,
 		# Since we use binary_crossentropy loss, we need binary labels
-		class_mode='categorical')
+		class_mode='binary')
 
 	validation_generator = test_datagen.flow_from_directory(
 		r'E:\DataSets\CatsAndDogs\train\validation',
 		target_size=(150, 150),
 		batch_size=20,
-		class_mode='categorical')
-
-	for data_batch, labels_batch in train_generator:
-		print('data batch shape:', data_batch.shape)
-		print('labels batch shape:', labels_batch.shape)
-		break
-
-	input_shape = (150, 150, 3)
+		class_mode='binary')
 
 	model = tf.keras.models.Sequential()
-
-	# Conv1 section
-	model.add(tf.keras.layers.Conv2D(32, (3, 3), padding = 'same', input_shape=input_shape))
-	model.add(tf.keras.layers.ReLU())
-	model.add(tf.keras.layers.MaxPool2D((2, 2), strides = (2, 2)))
-
-	# Conv2 section
-	model.add(tf.keras.layers.Conv2D(32, (3, 3), padding = 'same'))
-	model.add(tf.keras.layers.ReLU())
-	model.add(tf.keras.layers.MaxPool2D((2, 2), strides = (2, 2)))
 	
-	# Dense section
+	model.add(tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(150, 150, 3)))
+	model.add(tf.keras.layers.MaxPooling2D((2, 2)))
+	model.add(tf.keras.layers.Conv2D(64, (3, 3), activation='relu'))
+	model.add(tf.keras.layers.MaxPooling2D((2, 2)))
+	model.add(tf.keras.layers.Conv2D(128, (3, 3), activation='relu'))
+	model.add(tf.keras.layers.MaxPooling2D((2, 2)))
+	model.add(tf.keras.layers.Conv2D(128, (3, 3), activation='relu'))
+	model.add(tf.keras.layers.MaxPooling2D((2, 2)))
 	model.add(tf.keras.layers.Flatten())
-	model.add(tf.keras.layers.Dense(256))
-	model.add(tf.keras.layers.ReLU())
-	model.add(tf.keras.layers.Dropout(0.4))
+	model.add(tf.keras.layers.Dense(512, activation='relu'))
+	model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
 
-	# output layer 2 classes
-	model.add(tf.keras.layers.Dense(2))
-	model.add(tf.keras.layers.Softmax())
-
-	model.compile(optimizer = tf.keras.optimizers.Adam(0.01),
-				  loss = tf.keras.losses.sparse_categorical_crossentropy,
+	model.compile(optimizer = tf.keras.optimizers.RMSprop(lr=1e-4),
+				  loss = tf.keras.losses.binary_crossentropy,
 				  metrics=['accuracy'])
 
 	# print model architecture
