@@ -22,3 +22,4 @@ kiwisolver==1.0.1
 matplotlib==3.0.0
 pyparsing==2.2.2
 python-dateutil==2.7.3
+opencv-python==3.4.3.18
