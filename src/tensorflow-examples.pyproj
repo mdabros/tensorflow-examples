@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{264f7011-1c62-48de-b8f1-f8ff4daef396}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>cnn_visualize_class_activation_heatmaps.py</StartupFile>
+    <StartupFile>4_cnn_visualize_class_activation_heatmaps.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -19,12 +19,12 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="cnn_visualize_class_activation_heatmaps.py">
+    <Compile Include="4_cnn_visualize_class_activation_heatmaps.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="data_augmentation_using_keras_api.py" />
-    <Compile Include="cnn_using_keras_api.py" />
-    <Compile Include="transfer_learning_using_keras_applications.py" />
+    <Compile Include="2_data_augmentation_using_keras_api.py" />
+    <Compile Include="1_cnn_using_keras_api.py" />
+    <Compile Include="3_transfer_learning_using_keras_applications.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />

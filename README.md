@@ -5,8 +5,10 @@ Repository for tensorflow examples and experiments.
 
 ## Examples
 
- * [**cnn_using_keras_api**](https://github.com/mdabros/tensorflow-examples/blob/master/src/cnn_using_estimator_api.py): Train a custom convolutional neural network using the tf.keras API.
- * [**transfer_learning_using_keras_applications**](https://github.com/mdabros/tensorflow-examples/blob/master/src/transfer_learning_using_tf_hub.py): Train a neural network using the keras.applications and transfer learning.
+ * [**1_cnn_using_keras_api**](https://github.com/mdabros/tensorflow-examples/blob/master/src/1_cnn_using_keras_api.py): Train a custom convolutional neural network using the tf.keras API and ImageDataGenerator.
+ * [**2_data_augmentation_using_keras_api.py**](https://github.com/mdabros/tensorflow-examples/blob/master/src/2_data_augmentation_using_keras_api): Train a custom convolutional neural network tf.keras API and ImageDataGenerator with data augmentation.
+ * [**3_transfer_learning_using_keras_applications**](https://github.com/mdabros/tensorflow-examples/blob/master/src/3_transfer_learning_using_keras_applications.py): Train and fine-tune a neural network using a pre-trained model from the keras.applications API.
+ * [**4_cnn_visualize_class_activation_heatmaps**](https://github.com/mdabros/tensorflow-examples/blob/master/src/4_cnn_visualize_class_activation_heatmaps.py): Visualize class activation heatmaps from a convolutional neural network, to determine where in the image the network is focusing.
 
 ## Installation
 
