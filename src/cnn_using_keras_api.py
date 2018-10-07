@@ -25,7 +25,7 @@ def main(unused_argv):
 		batch_size=20,
 		class_mode='binary')
 
-	test_generator = validation_datagen.flow_from_directory(
+	test_generator = test_datagen.flow_from_directory(
 		r'E:\DataSets\CatsAndDogs\train\test',
 		target_size=(150, 150),
 		batch_size=20,
@@ -61,16 +61,20 @@ def main(unused_argv):
 		validation_data=validation_generator,
 		validation_steps=50)
 
+	print('Model evalaution:')
 	print(model.evaluate_generator(test_generator))
 
 	# save model
+	print('Save model')
 	model_name = 'cats_and_dogs_small_model.h5'
 	model.save(model_name)
 
 	# load model. This fails.
+	print('Load model')
 	loaded_model = tf.keras.models.load_model(model_name)
 
 	# print test loss and metric for loaded model
+	print('Loaded model evalaution:')
 	print(loaded_model.evaluate_generator(test_generator))
 
 if __name__ == "__main__":
