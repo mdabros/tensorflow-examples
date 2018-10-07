@@ -29,3 +29,18 @@ Install Tensor Flow packages:
 If using the gpu version of tensorflow, make sure to check which version of cuda and cuDNN is supported. 
 Then follow the instructions on [cudnn-install-windows](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html#install-windows)
 
+### Cats and Dogs DataSet
+The cats and dogs data set used in the examples, can be downloaded from [kaggle cats and dogs](https://www.kaggle.com/c/dogs-vs-cats/data).
+
+The examples are based on splitting the training set into 3 smaller data sets:
+ * Train: the first 2000 cat and the first 2000 dog images.
+ * Validation: The next 1000 cat and the next 1000 dog images.
+ * Test: The next 1000 cat and the next 1000 dog images.
+
+The 3 sets should each be placed in a separate folder, with sub folders for each class (cat and dog):
+ - Train: Data/Train/Cat, Data/Train/Dog.
+ - Validation: Data/Validation/Cat, Data/Validation/Dog.
+ - Train: Data/Test/Cat, Data/Test/Dog.
+
+This structure will work with the keras `ImageDataGenerator.flow_from_directory` method. 
+
