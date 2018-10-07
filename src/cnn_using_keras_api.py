@@ -31,9 +31,8 @@ def main(unused_argv):
 		batch_size=20,
 		class_mode='binary')
 
-
+	# Define simple cnn.
 	model = tf.keras.models.Sequential()
-	
 	model.add(tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(150, 150, 3)))
 	model.add(tf.keras.layers.MaxPooling2D((2, 2)))
 	model.add(tf.keras.layers.Conv2D(64, (3, 3), activation='relu'))
@@ -50,10 +49,10 @@ def main(unused_argv):
 				  loss = tf.keras.losses.binary_crossentropy,
 				  metrics=['accuracy'])
 
-	# print model architecture
+	# Print model architecture.
 	print(model.summary())
 
-	#model.fit(x_train, y_train, epochs=1, batch_size=32)
+	# Fit model using the generator method.
 	model.fit_generator(
 		train_generator,
 		steps_per_epoch=100,
@@ -64,16 +63,16 @@ def main(unused_argv):
 	print('Model evalaution:')
 	print(model.evaluate_generator(test_generator))
 
-	# save model
+	# Save model.
 	print('Save model')
 	model_name = 'cats_and_dogs_small_model.h5'
 	model.save(model_name)
 
-	# load model. This fails.
+	# Load model. This fails.
 	print('Load model')
 	loaded_model = tf.keras.models.load_model(model_name)
 
-	# print test loss and metric for loaded model
+	# Print test loss and metric for loaded model.
 	print('Loaded model evalaution:')
 	print(loaded_model.evaluate_generator(test_generator))
 
