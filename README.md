@@ -22,7 +22,7 @@ Components:
  * Install **Python language support**
  * Install **Python 3 64-bit** (e.g. 3.6.3)
 
-Install Tensor Flow packages:
+Install required packages:
  * Start Visual Studio, open **Python Environments**
  * Select **Python 3.6 (64-bit)**
  * On the **Overview** combo box select **Install from requirements.txt**
