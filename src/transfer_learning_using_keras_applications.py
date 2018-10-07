@@ -85,7 +85,40 @@ def main(unused_argv):
 	print('Model evalaution:')
 	print(model.evaluate_generator(test_generator))
 
-	# Save model.
+	# Fine tune the last layers of pretrained model together with the classifier layers.
+	vgg16_model.trainable = True
+
+	# Fine tune final layers of the pretrained network
+	set_trainable = False
+	for layer in vgg16_model.layers:
+		if layer.name == 'block5_conv1':
+			set_trainable = True
+		if set_trainable:
+			layer.trainable = True
+		else:
+			layer.trainable = False
+	
+	# Continue training and fine tune model,
+	# with a very low learning rate.
+	model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=1e-5),
+		loss = tf.keras.losses.binary_crossentropy,
+		metrics=['accuracy'])
+	
+	# Print model architecture,
+	# to show different trainable parameter count.
+	print(model.summary())
+
+	model.fit_generator(
+		train_generator,
+		steps_per_epoch=100,
+		epochs=100,
+		validation_data=validation_generator,
+		validation_steps=50)
+
+	print('Fine tuned model evalaution:')
+	print(model.evaluate_generator(test_generator))
+
+		# Save model.
 	print('Save model')
 	model_name = 'cats_and_dogs_small_model.h5'
 	model.save(model_name)
