@@ -69,11 +69,10 @@ def main(unused_argv):
 	iterate = tf.keras.backend.function([model.input], [pooled_grads, last_conv_layer.output[0]])
 
 	# These are the values of these two quantities, as Numpy arrays,
-	# given our sample image of two elephants
 	pooled_grads_value, conv_layer_output_value = iterate([x])
 
 	# We multiply each channel in the feature map array
-	# by "how important this channel is" with regard to the elephant class.
+	# by "how important this channel is" with regard to the "tabby" class.
 	for i in range(512):
 		conv_layer_output_value[:, :, i] *= pooled_grads_value[i]
 
