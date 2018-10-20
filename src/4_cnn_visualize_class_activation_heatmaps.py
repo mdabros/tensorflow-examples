@@ -20,9 +20,9 @@ tf.logging.set_verbosity(tf.logging.INFO)
 def main(unused_argv):
 	
 	# Setup data paths
-	dataDirectory = r'E:\DataSets\CatsAndDogs\tensorflow'
-	img_path = dataDirectory + r'\train_small\cat\cat.43.jpg'
-	heat_map_path = dataDirectory + r'\tabby_cat_heatmap.jpg'
+	data_directory = r'E:\DataSets\CatsAndDogs\tensorflow'
+	img_path = data_directory + r'\train_small\cat\cat.43.jpg'
+	heat_map_path = data_directory + r'\tabby_cat_heatmap.jpg'
 
 	# load full vgg16 model.
 	model = applications.VGG16(weights='imagenet')
