@@ -10,7 +10,7 @@ def main(unused_argv):
 	train_directory = data_directory + r'\train_small'
 	valid_directory = data_directory + r'\validation_small'
 	test_directory = data_directory + r'\test_small'
-	model_path = data_directory + 'cats_and_dogs_small_model.h5'
+	model_path = data_directory + r'\cats_and_dogs_small_model.h5'
 
 	# All images will be rescaled by 1./255
 	train_datagen = tf.keras.preprocessing.image.ImageDataGenerator(rescale=1./255)
