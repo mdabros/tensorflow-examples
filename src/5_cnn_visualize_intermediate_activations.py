@@ -58,6 +58,19 @@ def main(unused_argv):
 	# Finally visualize all top8 filters
 	visualize_all_filters(model, activations)
 
+	# The first layer acts as a collection of various edge detectors. At that stage, 
+	# the activations are still retaining almost all of the information present in the initial picture.
+	
+	# As we go higher-up, the activations become increasingly abstract and less visually interpretable. 
+	# They start encoding higher-level concepts such as "cat ear" or "cat eye". 
+	# Higher-up presentations carry increasingly less information about the visual contents of the image, 
+	# and increasingly more information related to the class of the image.
+	
+	# The sparsity of the activations is increasing with the depth of the layer: in the first layer, 
+	# all filters are activated by the input image, but in the following layers more and more filters are blank. 
+	# This means that the pattern encoded by the filter isn't found in the input image.
+
+
 def visualize_all_filters(model, activations):
 	# These are the names of the layers, so can have them as part of our plot
 	layer_names = []
