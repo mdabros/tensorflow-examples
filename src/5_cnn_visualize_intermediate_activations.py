@@ -4,7 +4,6 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.python.keras import applications
 from tensorflow.python.keras.applications.vgg16 import preprocess_input, decode_predictions
 import matplotlib.pyplot as plt
-import cv2
 import numpy as np
 
 tf.logging.set_verbosity(tf.logging.INFO)
