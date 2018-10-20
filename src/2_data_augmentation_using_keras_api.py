@@ -6,10 +6,11 @@ tf.logging.set_verbosity(tf.logging.INFO)
 def main(unused_argv):
 
 	# Setup data paths
-	dataDirectory = r'E:\DataSets\CatsAndDogs\tensorflow'
-	trainDirectoryPath = dataDirectory + r'\train_small'
-	validDirectoryPath = dataDirectory + r'\validation_small'
-	testDirectoryPath = dataDirectory + r'\test_small'
+	data_directory = r'E:\DataSets\CatsAndDogs\tensorflow'
+	train_directory = data_directory + r'\train_small'
+	valid_directoryh = data_directory + r'\validation_small'
+	test_directory = data_directory + r'\test_small'
+	model_path = data_directory + 'cats_and_dogs_small_model.h5'
 
 	# All images will be rescaled by 1./255, 
 	# and random augmentation are added to the training generator
@@ -27,7 +28,7 @@ def main(unused_argv):
 
 	train_generator = train_datagen.flow_from_directory(
 		# This is the target directory
-		trainDirectoryPath,
+		train_directory,
 		# All images will be resized to 150x150
 		target_size=(150, 150),
 		batch_size=20,
@@ -35,13 +36,13 @@ def main(unused_argv):
 		class_mode='binary')
 
 	validation_generator = validation_datagen.flow_from_directory(
-		validDirectoryPath,
+		valid_directoryh,
 		target_size=(150, 150),
 		batch_size=20,
 		class_mode='binary')
 
 	test_generator = test_datagen.flow_from_directory(
-		testDirectoryPath,
+		test_directory,
 		target_size=(150, 150),
 		batch_size=20,
 		class_mode='binary')
@@ -81,12 +82,11 @@ def main(unused_argv):
 
 	# Save model.
 	print('Save model')
-	model_name = 'cats_and_dogs_small_model.h5'
-	model.save(model_name)
+	model.save(model_path)
 
 	# Load model. This fails.
 	print('Load model')
-	loaded_model = tf.keras.models.load_model(model_name)
+	loaded_model = tf.keras.models.load_model(model_path)
 
 	# Print test loss and metric for loaded model.
 	print('Loaded model evalaution:')
