@@ -5,6 +5,12 @@ tf.logging.set_verbosity(tf.logging.INFO)
 
 def main(unused_argv):
 
+	# Setup data paths
+	dataDirectory = r'E:\DataSets\CatsAndDogs\tensorflow'
+	trainDirectoryPath = dataDirectory + r'\train_small'
+	validDirectoryPath = dataDirectory + r'\validation_small'
+	testDirectoryPath = dataDirectory + r'\test_small'
+
 	# All images will be rescaled by 1./255
 	train_datagen = tf.keras.preprocessing.image.ImageDataGenerator(rescale=1./255)
 	validation_datagen = tf.keras.preprocessing.image.ImageDataGenerator(rescale=1./255)
@@ -12,7 +18,7 @@ def main(unused_argv):
 
 	train_generator = train_datagen.flow_from_directory(
 		# This is the target directory
-		r'E:\DataSets\CatsAndDogs\train\train_small',
+		trainDirectoryPath,
 		# All images will be resized to 150x150
 		target_size=(150, 150),
 		batch_size=20,
@@ -20,13 +26,13 @@ def main(unused_argv):
 		class_mode='binary')
 
 	validation_generator = validation_datagen.flow_from_directory(
-		r'E:\DataSets\CatsAndDogs\train\validation',
+		validDirectoryPath,
 		target_size=(150, 150),
 		batch_size=20,
 		class_mode='binary')
 
 	test_generator = test_datagen.flow_from_directory(
-		r'E:\DataSets\CatsAndDogs\train\test',
+		testDirectoryPath,
 		target_size=(150, 150),
 		batch_size=20,
 		class_mode='binary')

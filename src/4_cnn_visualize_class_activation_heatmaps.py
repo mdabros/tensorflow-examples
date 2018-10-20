@@ -19,14 +19,16 @@ tf.logging.set_verbosity(tf.logging.INFO)
 
 def main(unused_argv):
 	
+	# Setup data paths
+	dataDirectory = r'E:\DataSets\CatsAndDogs\tensorflow'
+	img_path = dataDirectory + r'\train_small\cat\cat.43.jpg'
+	heat_map_path = dataDirectory + r'\tabby_cat_heatmap.jpg'
+
 	# load full vgg16 model.
 	model = applications.VGG16(weights='imagenet')
 	
 	# Print pretrained architecture.
 	print(model.summary())
-
-	# The local path to our target image
-	img_path = r'E:\DataSets\CatsAndDogs\train\train\cat\cat.43.jpg'
 
 	# `img` is a PIL image of size 224x224
 	img = image.load_img(img_path, target_size=(224, 224))
@@ -102,7 +104,7 @@ def main(unused_argv):
 	superimposed_img = heatmap * 0.4 + img
 
 	# Save the image to disk
-	cv2.imwrite(r'E:\DataSets\CatsAndDogs\tabby_cat_heatmap.jpg', superimposed_img)
+	cv2.imwrite(heat_map_path, superimposed_img)
 
 if __name__ == "__main__":
 	tf.app.run()
